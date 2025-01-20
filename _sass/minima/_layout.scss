@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.site-title {
+@mixin shared-title-styles {
   @include relative-font-size(1.625);
   font-weight: 300;
   line-height: $base-line-height * $base-font-size * 2.25;
@@ -24,9 +24,26 @@
   }
 }
 
+.site-title {
+  @include shared-title-styles;
+  // @include relative-font-size(1.625);
+  // font-weight: 300;
+  // line-height: $base-line-height * $base-font-size * 2.25;
+  // letter-spacing: -1px;
+  // margin-bottom: 0;
+  // float: left;
+
+  // &,
+  // &:visited {
+  //   color: $grey-color-dark;
+  // }
+}
+
 .site-nav {
-  float: right;
-  line-height: $base-line-height * $base-font-size * 2.25;
+  @include shared-title-styles;
+  // float: left;
+  // padding-left: $spacing-unit;
+  // line-height: $base-line-height * $base-font-size * 2.25;
 
   .nav-trigger {
       display: none;
@@ -40,10 +57,11 @@
     color: $text-color;
     line-height: $base-line-height;
 
+    margin-left: $spacing-unit;
     // Gaps between nav items, but not on the last one
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
+    // &:not(:last-child) {
+    //   margin-right: 20px;
+    // }
   }
 
   @include media-query($on-palm) {
@@ -178,6 +196,7 @@
 .page-content {
   padding: $spacing-unit 0;
   flex: 1;
+  background-color: skyblue;
 }
 
 .page-heading {
@@ -191,9 +210,11 @@
 .post-list {
   margin-left: 0;
   list-style: none;
+  background-color: papayawhip;
+  width: $content-width / 5;
 
   > li {
-    margin-bottom: $spacing-unit;
+    margin-bottom: 0;
   }
 }
 
@@ -204,7 +225,7 @@
 
 .post-link {
   display: block;
-  @include relative-font-size(1.5);
+  // @include relative-font-size(1.5);
 }
 
 
@@ -228,6 +249,7 @@
 
 .post-content {
   margin-bottom: $spacing-unit;
+  background-color: pink;
 
   h2 {
     @include relative-font-size(2);
