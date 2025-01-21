@@ -39,14 +39,14 @@
   // }
 }
 
-.site-nav {
+@mixin base-nav-styles {
   @include shared-title-styles;
   // float: left;
   // padding-left: $spacing-unit;
   // line-height: $base-line-height * $base-font-size * 2.25;
 
   .nav-trigger {
-      display: none;
+    display: none;
   }
 
   .menu-icon {
@@ -64,6 +64,35 @@
     // }
   }
 
+}
+
+@mixin trigger-behavior {
+  input~.trigger {
+    clear: both;
+    display: none;
+  }
+
+  input:checked~.trigger {
+    display: block;
+    padding-bottom: 5px;
+  }
+
+  .page-link {
+    display: block;
+    padding: 5px 10px;
+
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+
+    margin-left: 20px;
+  }
+
+}
+
+.site-nav {
+  @include base-nav-styles;
+
   @include media-query($on-palm) {
     position: absolute;
     top: 9px;
@@ -78,18 +107,8 @@
       float: right;
       width: 36px;
       height: 36px;
-      z-index: 0;
-      cursor: pointer;
-    }
-
-    label[for="post-list-trigger"] {
-      display: block;
-      float: left; 
-      width: 100%;
-      height: 36px;
       z-index: 2;
       cursor: pointer;
-      background-color: salmon;
     }
 
     .menu-icon {
@@ -101,44 +120,49 @@
       padding-top: 10px;
       text-align: center;
 
-      > svg {
+      >svg {
         fill: $grey-color-dark;
       }
     }
 
-    .menu-icon-post-test {
+    @include trigger-behavior;
+  }
+}
+
+.post-list-nav {
+  @include base-nav-styles;
+
+  @include media-query($on-palm) {
+    position: relative;
+    float: left;
+    background-color: $background-color;
+    text-align: left;
+
+    label[for="post-list-trigger"] {
+      display: block;
+      float: right;
+      width: 100%;
+      height: 36px;
+      z-index: 2;
+      cursor: pointer;
+      background-color: aquamarine;
+    }
+
+    .menu-icon {
       display: block;
       float: left;
-      width: 100%;
+      width: 36px;
       height: 26px;
       line-height: 0;
-      padding-top: 50px;
+      padding-top: 10px;
       text-align: center;
 
-      > svg {
+      >svg {
         fill: $grey-color-dark;
       }
     }
 
-    input ~ .trigger {
-      clear: both;
-      display: none;
-    }
-
-    input:checked ~ .trigger {
-      display: block;
-      padding-bottom: 5px;
-    }
-
-    .page-link {
-      display: block;
-      padding: 5px 10px;
-
-      &:not(:last-child) {
-        margin-right: 0;
-      }
-      margin-left: 20px;
-    }
+    @include trigger-behavior;
   }
 }
 
@@ -178,29 +202,30 @@
 
 .footer-col-1 {
   width: -webkit-calc(35% - (#{$spacing-unit} / 2));
-  width:         calc(35% - (#{$spacing-unit} / 2));
+  width: calc(35% - (#{$spacing-unit} / 2));
 }
 
 .footer-col-2 {
   width: -webkit-calc(20% - (#{$spacing-unit} / 2));
-  width:         calc(20% - (#{$spacing-unit} / 2));
+  width: calc(20% - (#{$spacing-unit} / 2));
 }
 
 .footer-col-3 {
   width: -webkit-calc(45% - (#{$spacing-unit} / 2));
-  width:         calc(45% - (#{$spacing-unit} / 2));
+  width: calc(45% - (#{$spacing-unit} / 2));
 }
 
 @include media-query($on-laptop) {
+
   .footer-col-1,
   .footer-col-2 {
     width: -webkit-calc(50% - (#{$spacing-unit} / 2));
-    width:         calc(50% - (#{$spacing-unit} / 2));
+    width: calc(50% - (#{$spacing-unit} / 2));
   }
 
   .footer-col-3 {
     width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-    width:         calc(100% - (#{$spacing-unit} / 2));
+    width: calc(100% - (#{$spacing-unit} / 2));
   }
 }
 
@@ -208,7 +233,7 @@
   .footer-col {
     float: none;
     width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-    width:         calc(100% - (#{$spacing-unit} / 2));
+    width: calc(100% - (#{$spacing-unit} / 2));
   }
 }
 
@@ -240,7 +265,7 @@
   background-color: papayawhip;
   width: $content-width / 5;
 
-  > li {
+  >li {
     margin-bottom: 0;
   }
 }
