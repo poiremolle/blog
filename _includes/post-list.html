@@ -1,0 +1,28 @@
+
+    {%- if site.posts.size > 0 -%}
+    <nav class="post-list-nav">
+        <input type="checkbox" id="post-list-trigger" class="nav-trigger" />
+        <label for="post-list-trigger">
+        <span class="menu-icon">
+            <h2 class="post-list-heading">projects</h2>
+        </span>
+        </label>
+
+        <div class="trigger">
+            <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+            <ul class="post-list">
+                {%- for post in site.posts -%}
+                <h3>
+                    <a class="post-link" href="{{ post.url | relative_url }}">
+                        {{ post.title | escape }}
+                    </a>
+                </h3>
+                {%- if site.show_excerpts -%}
+                {{ post.excerpt }}
+                {%- endif -%}
+                </li>
+                {%- endfor -%}
+            </ul>
+        </div>
+    </nav>
+    {%- endif -%}
