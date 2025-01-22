@@ -10,7 +10,7 @@
 
     <div class="trigger">
             {% for category in site.categories %}
-            <b>{{ category[0] }}</b> <!--category name-->
+            <h1 class="post-title">{{ category[0] }}</h1> <!--category name-->
             <ul>
                 {% for post in category[1] %} <!--list of posts in this category-->
                 <li>
