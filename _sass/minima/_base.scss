@@ -175,8 +175,7 @@ pre {
  */
 .wrapper {
   width: 100%;
-  max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-  max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+  box-sizing: border-box;
   display: flex;
   flex: 1;
   margin-right: auto;
@@ -190,9 +189,6 @@ pre {
   border: 1px solid green;
 
   @include media-query($on-palm) {
-    max-width: -webkit-calc(#{$on-palm} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$on-palm} - (#{$spacing-unit} * 2));
-    
     display: block;
   }
 
