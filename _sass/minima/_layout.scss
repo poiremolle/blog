@@ -122,6 +122,14 @@
 .post-list-nav {
   @include base-nav-styles;
   width: 100%;
+  flex: 0 0 25%;
+  list-style: none;
+  background-color: papayawhip;
+  border: 1px solid;
+
+  >li {
+    margin-bottom: 0;
+  }
 
   @include media-query($on-palm) {
     background-color: $background-color;
