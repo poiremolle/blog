@@ -189,6 +189,10 @@ pre {
   background-color: yellowgreen;
   border: 1px solid green;
 
+  @include media-query($on-palm) {
+    display: block;
+  }
+
   /*@include media-query($on-laptop) {
     max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
     max-width:         calc(#{$content-width} - (#{$spacing-unit}));
