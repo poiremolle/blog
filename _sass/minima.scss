@@ -1,8 +1,8 @@
 @charset "utf-8";
 
 // Define defaults for each variable.
-
-$base-font-family: "Courier New", Courier, "Lucida Console", monospace, -apple-system, BlinkMacSystemFont, "Segoe UI",  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$base-font-family: "Playfair Display", Georgia, "Times New Roman", serif, -apple-system;
+//$base-font-family: "Courier New", Courier, "Lucida Console", monospace, -apple-system, BlinkMacSystemFont, "Segoe UI",  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
