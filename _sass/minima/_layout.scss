@@ -258,19 +258,9 @@
 * Post list
 */
 .post-list-heading {
-  @include relative-font-size(1.75);
-}
-
-.post-list {
-  width: 100%;
-  flex: 0 0 25%;
-  list-style: none;
-  background-color: papayawhip;
-  border: 1px solid;
-
-  >li {
-    margin-bottom: 0;
-  }
+  @include shared-title-styles;
+  padding-right: $spacing-unit;
+  padding-left: $spacing-unit;
 }
 
 .post-meta {
