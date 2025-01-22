@@ -82,7 +82,6 @@ ul, ol {
 }
 
 li {
-  > ul,
   > ol {
     margin-bottom: 0;
   }
@@ -177,18 +176,28 @@ pre {
 .wrapper {
   max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
   max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+  display: flex;
+  flex: 1;
   margin-right: auto;
   margin-left: 0;
   padding-right: $spacing-unit;
   padding-left: $spacing-unit;
   @extend %clearfix;
 
-  @include media-query($on-laptop) {
+  background-color: yellowgreen;
+  border: 1px solid green;
+  // @include media-query($on-palm) {
+  //   background-color: lightgoldenrodyellow;
+  //   display: block;
+  //}
+  /*@include media-query($on-laptop) {
     max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
     max-width:         calc(#{$content-width} - (#{$spacing-unit}));
     padding-right: $spacing-unit / 2;
     padding-left: $spacing-unit / 2;
-  }
+    background-color: blue;
+  }*/
+
 }
 
 
