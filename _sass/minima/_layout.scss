@@ -238,9 +238,7 @@
  */
 .page-content {
   width: 100%;
-  max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-  max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
-  padding: 0 $spacing-unit;
+  max-width: $content-width;
 
   display: flex;
   flex-wrap: wrap;
