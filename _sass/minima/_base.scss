@@ -104,14 +104,21 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: $brand-color;
   text-decoration: none;
+  font-weight: $base-font-weight * 2;
+  text-transform: uppercase;
 
   &:visited {
     color: darken($brand-color, 15%);
   }
 
-  &:hover {
-    color: $text-color;
-    text-decoration: underline;
+  // &:hover {
+  //   color: yellow;
+  //   font-family: Georgia, 'Times New Roman', Times, serif;
+  //   font-weight: $base-font-weight / 3;
+  // }
+
+  &:active {
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   .social-media-list &:hover {
@@ -174,9 +181,10 @@ pre {
  * Wrapper
  */
 .wrapper {
-  width: 100%;
+  @include base-container-attributes(none);
+  //width: 100%;
   box-sizing: border-box;
-  display: flex;
+  //display: flex;
   flex: 1;
   margin-right: auto;
   margin-left: 0;
@@ -184,12 +192,12 @@ pre {
   padding-left: $spacing-unit;
   @extend %clearfix;
 
-  background-color: yellowgreen;
-  border: 1px solid green;
+  // background-color: yellowgreen;
+  // //border: 1px solid green;
 
-  @include media-query($on-palm) {
-    display: block;
-  }
+  // @include media-query($on-palm) {
+  //   display: block;
+  // }
 
 }
 
