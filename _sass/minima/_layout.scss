@@ -139,6 +139,12 @@
   font-weight: $base-font-weight / 3;
 }
 
+#current {
+  color: $highlight-color;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: $base-font-weight / 3;
+} 
+
 
 /** 
 * Navigation - post list
