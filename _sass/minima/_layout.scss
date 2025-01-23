@@ -189,9 +189,8 @@
 .site-footer {
   @include base-container-attributes($footer-color);
   justify-content: end;
-  box-sizing: border-box;
-  padding: $spacing-unit;
-
+  padding: ($spacing-unit / 2) $spacing-unit 0 0;
+  //line-height: $base-line-height * $base-font-size * 2.25;
 }
 
 .footer-heading {
