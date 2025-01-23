@@ -12,12 +12,14 @@ $spacing-unit:     30px !default;
 $spacing-unit-list: 10px !default;
 
 $text-color:       #111 !default;
-$background-color: #fdfdfd !default;
-$header-color:     red !default;
-$title-color:      #BFA2DB;
 $brand-color:      blue !default;
 $secondary-color:  #633835;
 $highlight-color:  yellow;
+
+$header-color:     red !default;
+$title-color:      #BFA2DB;
+$footer-color:     burlywood;
+$background-color: #fdfdfd !default;
 
 $grey-color:       #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
@@ -54,6 +56,8 @@ $on-laptop:        800px !default;
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
+
+  box-sizing: border-box;
 
   @include media-query($on-palm) {
     display: block;

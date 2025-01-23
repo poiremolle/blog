@@ -186,9 +186,11 @@
  * Site footer
  */
 .site-footer {
-  //border-top: 1px solid $grey-color-light;
-  padding: $spacing-unit 0;
-  background-color: burlywood;
+  @include base-container-attributes($footer-color);
+  justify-content: end;
+  box-sizing: border-box;
+  padding: $spacing-unit;
+
 }
 
 .footer-heading {
