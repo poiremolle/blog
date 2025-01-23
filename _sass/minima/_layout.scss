@@ -13,9 +13,11 @@
 
 @mixin shared-title-styles {
   @include relative-font-size(1.625);
+  text-transform: uppercase;
   //font-weight: 300;
   line-height: $base-line-height * $base-font-size * 2.25 + 2;
   margin-bottom: 0;
+  
 
   color: $brand-color;
   // &,
@@ -31,7 +33,6 @@
   padding-left: $spacing-unit;
   box-sizing: border-box;
 
-  text-transform: uppercase;
   background-color: $title-color;
 
   @include media-query($on-palm) {
