@@ -29,6 +29,7 @@
 
 .site-title {
   @include shared-title-styles;
+  min-width: 260px;
   flex: 0 0 25%;
   padding-left: $spacing-unit;
   box-sizing: border-box;
