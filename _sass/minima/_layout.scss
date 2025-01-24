@@ -278,6 +278,7 @@
 
 .page-content {
   @include base-container-attributes(seashell);
+  height: 100vh;
 }
 
 .page-heading {
