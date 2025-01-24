@@ -263,6 +263,19 @@
 /**
  * Page content
  */
+.page-header {
+  margin-bottom: $spacing-unit;
+}
+
+.page-title {
+  display: none;
+  @include shared-title-styles;
+
+  @include media-query($on-palm) {
+    display: block;
+  }
+}
+
 .page-content {
   @include base-container-attributes(seashell);
 }
@@ -300,19 +313,6 @@
 /**
  * Posts
  */
- .page-title {
-  display: none;
-  @include shared-title-styles;
-
-  @include media-query($on-palm) {
-    display: block;
-  }
-}
-
-.post-header {
-  margin-bottom: $spacing-unit;
-}
-
 .post-title {
   @include shared-title-styles;
 }
