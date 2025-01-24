@@ -300,6 +300,15 @@
 /**
  * Posts
  */
+ .page-title {
+  display: none;
+  @include shared-title-styles;
+
+  @include media-query($on-palm) {
+    display: block;
+  }
+}
+
 .post-header {
   margin-bottom: $spacing-unit;
 }
