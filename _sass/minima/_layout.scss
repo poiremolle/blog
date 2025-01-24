@@ -265,6 +265,10 @@
  */
 .page-header {
   margin-bottom: $spacing-unit;
+  @include media-query($on-palm){
+    margin-bottom: 0;
+  }
+ 
 }
 
 .page-title {
