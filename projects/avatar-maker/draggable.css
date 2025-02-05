@@ -1,0 +1,33 @@
+#canvas {
+  width: 400px;
+  height: 300px;
+  border: 2px dashed blue;
+  position: relative;
+  overflow: hidden; /* Ensures images don't go outside */
+}
+
+ #image-container {
+    display: flex;
+    flex-direction: column; 
+    gap: 30px; /* Space between rows */
+  }
+
+  .row {
+    display: flex;
+    border: 2px solid red;
+  }
+
+  .image-wrapper {
+  position: relative;
+  display: inline-block;
+  /* flex-shrink: 0; */
+  border: 1px solid black;
+  /* min-width: min-content;
+  height: auto; */
+  }
+
+  .draggable {
+  position: relative; 
+  cursor: grab;
+}
+
