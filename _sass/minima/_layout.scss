@@ -283,7 +283,7 @@
 
 .page-content {
   @include base-container-attributes($background-color);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .page-heading {
