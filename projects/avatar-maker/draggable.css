@@ -1,6 +1,6 @@
 #canvas {
-  width: 400px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
   border: 2px dashed blue;
   position: relative;
   overflow: hidden; /* Ensures images don't go outside */
@@ -22,12 +22,12 @@
   display: inline-block;
   /* flex-shrink: 0; */
   border: 1px solid black;
-  /* min-width: min-content;
-  height: auto; */
+  height: auto;
   }
 
-  .draggable {
+  .draggable { 
   position: relative; 
+  /*transform: scale(0.5);*/
   cursor: grab;
 }
 
