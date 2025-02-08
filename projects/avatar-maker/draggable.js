@@ -77,26 +77,18 @@ for (let i = 0; i < draggables.length; i++) {
     // calculates how far in the img the cursor is so the img doesn't "jump" to the cursor 
     initialX = event.clientX - currentElement.offsetLeft;  
     initialY = event.clientY - currentElement.offsetTop;
-    // console.log("currentElement.offsetLeft in mousedown: " + currentElement.offsetLeft + ", currentElement.offsetTop in mousedown: " + currentElement.offsetTop);
-    // console.log("event.clientX in mousedown: " + event.clientX + ", event.clientY in mousedown: " + event.clientY);
- 
-    // console.log("initialX in mousedown: " + initialX + ", initialY in mousedown: " + initialY);
-    console.log("bounding posX in mousedown: " + currentElement.getBoundingClientRect().left + ", bounding posY in mousedown: " + currentElement.getBoundingClientRect().top);
-    
   });
 }
 
 // triggers no matter where mouse is clicked
 document.addEventListener('mouseup', function() {
   if(currentElement != null) {
-    console.log('rect x in mouseup: ' + currentElement.getBoundingClientRect().left + 'rect y: in mouseup' + currentElement.getBoundingClientRect().top);
-    if(imageIsOnCanvas(currentElement, canvas)){
+     if(imageIsOnCanvas(currentElement, canvas)){
       canvasImages.add(currentElement);
-      console.log("event.clientX in mouseup: " + event.clientX + ", event.clientY in mouseup: " + event.clientY);
- 
+
        } else {
       canvasImages.delete(currentElement);
-      // console.log(canvasImages.size);
+
     }
      
   }
@@ -112,8 +104,6 @@ document.addEventListener('mousemove', function(event) {
     // difference between mouse (x,y) and the cursor offset relative to the element's top corner
     currentX = event.clientX - initialX; 
     currentY = event.clientY - initialY;
-    console.log('mousex: ' + event.clientX + 'mousey: ' + event.clientY);
-    console.log('x in mousemove: ' + currentX + ' y in mousemove: ' + currentY);
     currentElement.style.left = currentX + 'px';
     currentElement.style.top = currentY + 'px';
   }
