@@ -12,6 +12,7 @@
 const canvas = document.getElementById('canvas');
 const container = document.getElementById('image-container');
 export const canvasImages = new Set();
+export const factor = 2;
 
 function createWrappedImageElement(src, alt) {
  const wrapper = document.createElement('div');
@@ -150,4 +151,4 @@ function loadDraggableStyles() {
 loadDraggableStyles();
 displayImagesInRows();
 setDraggableEventListeners();
-scaleWrappedImages(0.5);
+scaleWrappedImages(1 / factor);
