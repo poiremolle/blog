@@ -21,11 +21,37 @@ function createWrappedImageElement(src, alt) {
   img.className = 'draggable';
   img.src = src;
   img.alt = alt;
+  img.style.width = 100 + 'px';
+  img.style.height = 'auto';
 
   wrapper.appendChild(img);
   return wrapper;
 
 }
+
+
+function scaleWrappedImages(scaleFactor) {
+  document.querySelectorAll('.image-wrapper img').forEach(img => {
+    if (img.complete && img.naturalWidth > 0) {
+      scaleImage(img, scaleFactor);
+    } else {
+      img.onload = () => scaleImage(img, scaleFactor);
+    }
+  });
+}
+
+function scaleImage(img, scaleFactor) {
+  const ogWidth = img.naturalWidth;
+  const ogHeight = img.naturalHeight;
+
+  const newWidth = ogWidth * scaleFactor;
+  const newHeight = ogHeight * scaleFactor;
+
+  img.style.width = newWidth + 'px';
+  img.style.height = newHeight + 'px';
+
+}
+
 
 function displayImagesInRows() {
      // Loop through each category and create a row
@@ -124,3 +150,4 @@ function loadDraggableStyles() {
 loadDraggableStyles();
 displayImagesInRows();
 setDraggableEventListeners();
+scaleWrappedImages(0.5);
