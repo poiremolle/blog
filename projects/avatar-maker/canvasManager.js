@@ -1,4 +1,5 @@
 import { canvasImages  } from "./draggable.js";
+import { factor } from "./draggable.js";
 
 function calculateOffset(rect){
 
@@ -11,24 +12,23 @@ function saveCanvas() {
     }
 
     const canvas = document.createElement("canvas");
-    canvas.width = 500;
-    canvas.height = 500;
+    const screenCanvasWidth = document.getElementById('canvas').offsetWidth;
+    const screenCanvasHeight = document.getElementById('canvas').offsetHeight;
+
+    canvas.width = screenCanvasWidth * factor;
+    canvas.height = screenCanvasHeight * factor;
     
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "white"; // Set background color
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
-    ;
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
     for(let img of canvasImages) {
-        // const x = img.style.left;
-        // const y = img.style.top;
         const x = img.getBoundingClientRect().left;
         const y = img.getBoundingClientRect().top;
         const canvasX = document.getElementById('canvas').getBoundingClientRect().left;
         const canvasY = document.getElementById('canvas').getBoundingClientRect().top;
-        // const x = img.offsetLeft;
-        // const y = img.offsetTop;
-        // console.log('x in draw: ' + x + ', y in draw: ' + y);
-        ctx.drawImage(img, x - canvasX, y - canvasY, img.naturalWidth, img.naturalHeight);
+
+        ctx.drawImage(img, (x - canvasX) * factor, (y - canvasY) * factor, img.naturalWidth, img.naturalHeight);
     }
 
 // Convert canvas to image and download
@@ -41,4 +41,4 @@ function saveCanvas() {
 const button = document.createElement("button");
 button.textContent = "Save as Image";
 button.onclick = saveCanvas;
-document.getElementById('maker').appendChild(button);
+document.getElementById('image-container').appendChild(button);
