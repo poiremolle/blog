@@ -1,5 +1,6 @@
 #maker {
   display: flex;
+  gap: 30px;
 }
 
 #canvas {
@@ -7,26 +8,22 @@
   height: 300px;
   border: 2px dashed blue;
   position: relative;
-  overflow: hidden; /* Ensures images don't go outside */
 }
 
  #image-container {
     display: flex;
     flex-direction: column; 
-    gap: 30px; /* Space between rows */
-    border: 1px solid yellow;
   }
 
   .row {
     display: flex;
     flex-wrap: wrap;
-    border: 2px solid red;
+    margin-bottom: 30px;
   }
 
   .image-wrapper {
   position: relative;
   display: inline-block;
-  border: 1px solid black;
   }
 
   .draggable { 
