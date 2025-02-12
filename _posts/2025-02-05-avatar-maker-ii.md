@@ -8,5 +8,6 @@ categories: you
 <div id="maker">
 <div id="canvas"></div>
 <div id="image-container"></div>
-<script src = '/blog/projects/avatar-maker/draggable.js'>
-</script>
+</div>
+<script type="module" src = '/blog/projects/avatar-maker/draggable.js'></script>
+<script type="module" src = '/blog/projects/avatar-maker/canvasManager.js'></script>
