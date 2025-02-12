@@ -3,8 +3,8 @@
 }
 
 #canvas {
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   border: 2px dashed blue;
   position: relative;
   overflow: hidden; /* Ensures images don't go outside */

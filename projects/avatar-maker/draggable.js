@@ -57,7 +57,8 @@ function scaleImage(img, scaleFactor) {
 function displayImagesInRows() {
      // Loop through each category and create a row
   for (const [category, count] of Object.entries(props)) {
-    const heading = document.createElement('h3');
+    const heading = document.createElement('p');
+    heading.className="post-list-heading";
     heading.textContent = category
     container.appendChild(heading);
 
@@ -73,7 +74,6 @@ function displayImagesInRows() {
     }
     container.appendChild(row);
   }
-
 }
 
 function imageIsOnCanvas(image, canvas){
@@ -104,6 +104,34 @@ for (let i = 0; i < draggables.length; i++) {
     // calculates how far in the img the cursor is so the img doesn't "jump" to the cursor 
     initialX = event.clientX - currentElement.offsetLeft;  
     initialY = event.clientY - currentElement.offsetTop;
+  });
+
+  draggables[i].addEventListener('dblclick', function(event) {
+    console.log("dbl clicked");
+    if (event.target.tagName === 'IMG') {
+      event.preventDefault();
+
+      const midCanvasX = canvas.getBoundingClientRect().left + 
+                         canvas.offsetWidth / 2;
+      const midCanvasY = canvas.getBoundingClientRect().top +
+                         canvas.offsetHeight / 2;
+
+      const midImgX = this.getBoundingClientRect().left +
+                   this.offsetWidth / 2;
+      const midImgY = this.getBoundingClientRect().top + 
+                   this.offsetHeight / 2;
+
+      const newX = midCanvasX - midImgX;
+      const newY = midCanvasY - midImgY;
+
+      this.style.left =  newX + 'px';
+      this.style.top = newY + 'px';
+  
+      if(imageIsOnCanvas(this, canvas)) {
+        canvasImages.add(this);
+      }
+    }
+   
   });
 }
 
