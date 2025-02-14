@@ -41,4 +41,6 @@ function saveCanvas() {
 const button = document.createElement("button");
 button.textContent = "Save as Image";
 button.onclick = saveCanvas;
-document.getElementById('image-container').appendChild(button);
+button.setAttribute("style", "width: 250px; height: 100px; background-color:$brand-color");
+button.classList.add("post-content");
+document.getElementById('canvas').insertAdjacentElement("afterend", button);
