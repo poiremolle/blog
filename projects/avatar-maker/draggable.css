@@ -1,11 +1,12 @@
 #maker {
   display: flex;
+  flex-direction: column;
   gap: 30px;
 }
 
 #canvas {
-  width: 300px;
-  height: 300px;
+  min-width: 300px;
+  min-height: 300px;
   border: 2px dashed blue;
   position: relative;
 }
