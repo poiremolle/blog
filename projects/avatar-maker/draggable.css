@@ -1,3 +1,33 @@
+.test-container {
+  display: grid;
+  grid-template-areas:
+    "canvas items"
+    "save-button items";
+  grid-template-columns: 1fr 3fr;
+  gap: 5px;
+  background-color: pink;
+  padding: 5px;
+}
+
+.test-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+}
+
+.test-container > div.canvas {
+  min-width: 300px;
+  min-height: 300px;
+  border: 2px dashed red;
+  position: relative;
+}
+
+.test-container > div.items {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
 #maker {
   display: flex;
   flex-direction: column;
