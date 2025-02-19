@@ -1,17 +1,14 @@
-.test-container {
+.grid-container {
   display: grid;
   grid-template-areas:
-    "canvas items"
-    "save-button items";
-  grid-template-columns: 1fr 3fr;
-  gap: 5px;
-  background-color: pink;
-  padding: 5px;
+  'canvas-manager items';
+  gap: 30px;
 }
 
-.test-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px;
+.grid-container > div {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
 }
 
 #maker {
