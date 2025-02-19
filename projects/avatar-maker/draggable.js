@@ -57,14 +57,8 @@ function scaleImage(img, scaleFactor) {
 function displayImagesInRows() {
      // Loop through each category and create a row
   for (const [category, count] of Object.entries(props)) {
-    const heading = document.createElement('p');
-    heading.className="post-list-heading";
-    heading.textContent = category
-    container.appendChild(heading);
-
     const row = document.createElement('div');
     row.classList.add('row'); 
-    // row.dataset.category = category;
   
     // Add images to the row
     for (let i = 0; i < count; i++) {
