@@ -12,7 +12,7 @@
 const canvas = document.getElementById('canvas');
 const container = document.getElementById('image-container');
 export const canvasImages = new Set();
-export const factor = 2;
+export const factor = 3;
 
 function createWrappedImageElement(src, alt) {
  const wrapper = document.createElement('div');
