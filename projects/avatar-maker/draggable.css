@@ -11,12 +11,6 @@
   font-size: 30px;
 }
 
-#maker {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
 #canvas {
   min-width: 300px;
   min-height: 300px;
