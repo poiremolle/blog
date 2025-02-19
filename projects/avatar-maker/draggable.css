@@ -14,20 +14,6 @@
   padding: 10px;
 }
 
-.test-container > div.canvas {
-  min-width: 300px;
-  min-height: 300px;
-  border: 2px dashed red;
-  position: relative;
-}
-
-.test-container > div.items {
-  display: flex;
-  flex-direction: column;
-  
-}
-
-
 #maker {
   display: flex;
   flex-direction: column;
