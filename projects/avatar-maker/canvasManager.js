@@ -19,7 +19,7 @@ function saveCanvas() {
     canvas.height = screenCanvasHeight * factor;
     
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "rgb(186, 238, 214)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     for(let img of canvasImages) {
@@ -41,6 +41,6 @@ function saveCanvas() {
 const button = document.createElement("button");
 button.textContent = "Save as Image";
 button.onclick = saveCanvas;
-button.setAttribute("style", "width: 250px; height: 100px; background-color:$brand-color");
+button.setAttribute("style", "width: 200px; height: 50px; background-color:$brand-color; margin-top: 15px;");
 button.classList.add("post-content");
 document.getElementById('canvas').insertAdjacentElement("afterend", button);
