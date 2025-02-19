@@ -186,18 +186,12 @@ pre {
  */
 .wrapper {
   @include base-container-attributes(none);
-  //width: 100%;
-  //box-sizing: border-box;
-  //display: flex;
   flex: 1;
   margin-right: auto;
   margin-left: 0;
   padding-right: $spacing-unit;
   padding-left: $spacing-unit;
   @extend %clearfix;
-
-  // background-color: yellowgreen;
-  // //border: 1px solid green;
 
   // @include media-query($on-palm) {
   //   display: block;
