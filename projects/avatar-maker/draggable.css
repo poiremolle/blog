@@ -23,6 +23,7 @@
 #canvas {
   min-width: 300px;
   min-height: 300px;
+  background-color: rgb(186, 238, 214);
   border: 2px dashed blue;
   position: relative;
 }
