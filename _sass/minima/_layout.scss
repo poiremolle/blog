@@ -1,3 +1,12 @@
+@mixin shared-title-styles {
+  @include relative-font-size(1.625);
+  text-transform: uppercase;
+  line-height: $base-line-height * $base-font-size * 2.25 + 2;
+  margin-bottom: 0;
+  color: $brand-color;
+
+}
+
 .container {
   min-height: 100vh;
   display: grid;
@@ -51,21 +60,6 @@
   // Positioning context for the mobile navigation icon
   position: relative;
 
-}
-
-@mixin shared-title-styles {
-  @include relative-font-size(1.625);
-  text-transform: uppercase;
-  //font-weight: 300;
-  line-height: $base-line-height * $base-font-size * 2.25 + 2;
-  margin-bottom: 0;
-  
-
-  color: $brand-color;
-  // &,
-  // &:visited {
-  //   color: $grey-color-dark;
-  // }
 }
 
 
