@@ -69,22 +69,6 @@
 }
 
 
-.site-title {
-  @include shared-title-styles;
-  min-width: 260px;
-  //flex: 0 0 25%;
-  //padding-left: $spacing-unit;
-  //box-sizing: border-box;
-
-  background-color: $title-color;
-
-  @include media-query($on-palm) {
-    display: inline-block;
-    padding-right: $spacing-unit;
-  }
-
-}
-
 /**
 * Navigation
 */
