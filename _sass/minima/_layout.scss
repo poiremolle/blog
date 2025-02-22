@@ -61,7 +61,7 @@
     "footer footer";
   grid-template-columns: 1fr 3fr;
   gap: 5px;
-  background-color: #2196F3;
+  background-color: $brand-color;
   padding: 5px;
 
   @include media-query($on-palm) {
@@ -69,11 +69,9 @@
   }
 }
 
-.container > div 
-.container > main
-{
+.container > div {
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px;
+  padding: $spacing-unit / 2;
 }
 
 .container > div.logo {
@@ -81,7 +79,7 @@
   @include shared-title-styles;
   min-width: 260px;
 
-  background-color: $title-color;
+  //background-color: $title-color;
 
   @include media-query($on-palm) {
     display: inline-block;
@@ -133,10 +131,10 @@
 .container > div.sidebar {
   grid-area: sidebar;
   @include base-nav-styles;
-  width: 100%;
-  flex: 0 0 25%;
+  // width: 100%;
+  // flex: 0 0 25%;
   list-style: none;
-  background-color: papayawhip;
+  //background-color: papayawhip;
   //border: 1px solid;
 
   >li {
@@ -171,14 +169,14 @@
 }
 .container > main.content {
   grid-area: content;
-  @include base-container-attributes($background-color);
+  //@include base-container-attributes($background-color);
   min-height: 100vh;
 }
 .container > div.footer {
   grid-area: footer;
-  @include base-container-attributes($footer-color);
+  //@include base-container-attributes($footer-color);
   justify-content: end;
-  padding: ($spacing-unit / 2) $spacing-unit 0 0;
+  //padding: ($spacing-unit / 2) $spacing-unit 0 0;
 }
 /**
  * Site header
