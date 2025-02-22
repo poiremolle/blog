@@ -7,6 +7,51 @@
 
 }
 
+@mixin base-nav-styles {
+  @include shared-title-styles;
+  .nav-trigger {
+    display: none;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  .page-link {
+    line-height: $base-line-height;
+
+    margin-left: $spacing-unit;
+    // Gaps between nav items, but not on the last one
+    // &:not(:last-child) {
+    //   margin-right: 20px;
+    // }
+  }
+
+}
+
+@mixin trigger-behavior {
+  
+  input~.trigger {
+    clear: both;
+    display: none;
+  }
+
+  input:checked~.trigger {
+    display: block;
+    padding-bottom: 5px;
+  }
+
+  .page-link {
+    display: block;
+    padding: 5px 10px;
+
+    &:not(:last-child) {
+      margin-right: 0;
+    }
+  }
+}
+
+
 .container {
   min-height: 100vh;
   display: grid;
@@ -66,49 +111,6 @@
 /**
 * Navigation
 */
-@mixin base-nav-styles {
-  @include shared-title-styles;
-  .nav-trigger {
-    display: none;
-  }
-
-  .menu-icon {
-    display: none;
-  }
-
-  .page-link {
-    line-height: $base-line-height;
-
-    margin-left: $spacing-unit;
-    // Gaps between nav items, but not on the last one
-    // &:not(:last-child) {
-    //   margin-right: 20px;
-    // }
-  }
-
-}
-
-@mixin trigger-behavior {
-  
-  input~.trigger {
-    clear: both;
-    display: none;
-  }
-
-  input:checked~.trigger {
-    display: block;
-    padding-bottom: 5px;
-  }
-
-  .page-link {
-    display: block;
-    padding: 5px 10px;
-
-    &:not(:last-child) {
-      margin-right: 0;
-    }
-  }
-}
 
 /** 
 * Navigation - site nav
