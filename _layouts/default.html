@@ -5,23 +5,23 @@
 
   <body>
     <div class="container">
-      <div class="logo"><h2>My Title</h2></div>
-        <div class="topnav"><h2>My Header</h2></div>
-      <div class="sidebar"><a href="#">Link 1</a><br><a href="#">Link 2</a><br><a href="#">Link 3</a></div>
-      <div class="content"><h3>Lorem Ipsum</h3><p>Lorem ipsum odor amet, consectetuer adipiscing elit. Ridiculus sit nisl laoreet facilisis aliquet. Potenti dignissim litora eget montes rhoncus sapien neque urna. Cursus libero sapien integer magnis ligula lobortis quam ut.</p></div>
-      <div class="footer"><h4>Footer</h4></div>
-    </div>
-    
-    {%- include header.html -%}
-   
-    <main class="page-content" aria-label="Content">
-      {%- include post-list.html -%}
-      <div class="wrapper">
-        {{ content }}
+      <div class="logo">
+        {%- include site-title.html -%}
       </div>
-    </main>
 
-    {%- include footer.html -%}
+      <div class="top-nav">
+        {%- include top-nav.html -%}
+      </div>
+
+      <div class="sidebar">    
+        {%- include post-list.html -%}
+      </div>
+      <main class="content"> {{content}} </main>
+      
+      <div class="footer">
+        {%- include footer.html -%}
+      </div>
+    </div>
 
   </body>
 
