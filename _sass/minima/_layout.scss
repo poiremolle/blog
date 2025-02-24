@@ -30,6 +30,8 @@
 }
 
 @mixin trigger-behavior {
+
+  display: flex;
   
   input~.trigger {
     clear: both;
@@ -61,8 +63,7 @@
     "footer footer";
   grid-template-columns: 1fr 3fr;
   gap: 2px;
-  background-color: $brand-color;
-  //padding: 2px;
+  background-color: $highlight-color;
 
   @include media-query($on-palm) {
     display: block;
@@ -70,17 +71,14 @@
 }
 
 .container > div {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: $footer-color;
   padding: $spacing-unit / 2;
-  //border: 2px solid $brand-color;
 }
 
 .container > div.logo {
   grid-area: logo;
   @include shared-title-styles;
   min-width: 260px;
-
-  //background-color: $title-color;
 
   @include media-query($on-palm) {
     display: inline-block;
@@ -177,72 +175,13 @@
 
 .container > div.footer {
   grid-area: footer;
-  //@include base-container-attributes($footer-color);
   justify-content: end;
-  //padding: ($spacing-unit / 2) $spacing-unit 0 0;
 }
-/**
- * Site header
- */
-
-// .site-header {
-//   // border-bottom: 1px solid $grey-color-light;
-//   @include base-container-attributes($compl-color);
-//   min-height: $spacing-unit * 1.865;
-
-//   // Positioning context for the mobile navigation icon
-//   position: relative;
-
-// }
 
 
 /**
 * Navigation
 */
-
-/** 
-* Navigation - site nav
-*/
-// .site-nav {
-//   @include base-nav-styles;
-
-//   @include media-query($on-palm) {
-//     position: absolute;
-//     top: 9px;
-//     right: 9px;
-//     display: block;
-//     background-color: $background-color;
-//     border: 1px solid $brand-color;
-//     border-radius: 5px;
-//     text-align: right;
-
-//     label[for="nav-trigger"] {
-//       width: 100%;
-//       height: 36px;
-//       display: flex;
-//       justify-content: end;
-//       z-index: 2;
-//       cursor: pointer;
-//       background-color: $brand-color;
-//     }
-
-//     .menu-icon {
-//       display: block;
-//       width: 36px;
-//       height: 12px;
-//       line-height: 0;
-//       padding-top: 10px;
-//       text-align: center;
-//       background-color: $brand-color;
-
-//       >svg {
-//         fill: $background-color
-//       }
-//     }
-
-//     @include trigger-behavior;
-//   }
-// }
 
 .site-nav a:hover {
   color: $highlight-color;
@@ -256,121 +195,6 @@
   font-weight: $base-font-weight / 3;
 } 
 
-
-/** 
-* Navigation - post list
-// */
-// .post-list-nav {
-//   @include base-nav-styles;
-//   width: 100%;
-//   flex: 0 0 25%;
-//   list-style: none;
-//   background-color: papayawhip;
-//   //border: 1px solid;
-
-//   >li {
-//     margin-bottom: 0;
-//   }
-
-//   @include media-query($on-palm) {
-//     background-color: $background-color;
-//     text-align: left;
-//     border-bottom: 3px solid $brand-color;
-
-//     label[for="post-list-trigger"] {
-//       display: block;
-//       width: 100%;
-//       cursor: pointer;
-//       background-color: $highlight-color;
-//     }
-
-//     .menu-icon {
-//       display: block;
-//       width: 100%;
-//       line-height: 1;
-//       text-align: left;
-
-//       >svg {
-//         fill: $grey-color-dark;
-//       }
-//     }
-
-//     @include trigger-behavior;
-//   }
-// }
-
-
-
-/**
- * Site footer
- */
-// .site-footer {
-//   @include base-container-attributes($footer-color);
-//   justify-content: end;
-//   padding: ($spacing-unit / 2) $spacing-unit 0 0;
-//   //line-height: $base-line-height * $base-font-size * 2.25;
-// }
-
-// .footer-heading {
-//   @include relative-font-size(1.125);
-//   margin-bottom: $spacing-unit / 2;
-// }
-
-// .contact-list,
-// .social-media-list {
-//   list-style: none;
-//   margin-left: 0;
-// }
-
-// .footer-col-wrapper {
-//   @include relative-font-size(0.9375);
-//   color: $grey-color;
-//   //margin-left: -$spacing-unit / 2;
-//   @extend %clearfix;
-// }
-
-// .footer-col {
-//   float: left;
-//   margin-bottom: $spacing-unit / 2;
-//   padding-left: $spacing-unit / 2;
-// }
-
-// .footer-col-1 {
-//   width: -webkit-calc(35% - (#{$spacing-unit} / 2));
-//   width: calc(35% - (#{$spacing-unit} / 2));
-// }
-
-// .footer-col-2 {
-//   width: -webkit-calc(20% - (#{$spacing-unit} / 2));
-//   width: calc(20% - (#{$spacing-unit} / 2));
-// }
-
-// .footer-col-3 {
-//   width: -webkit-calc(45% - (#{$spacing-unit} / 2));
-//   width: calc(45% - (#{$spacing-unit} / 2));
-// }
-
-// @include media-query($on-laptop) {
-
-//   .footer-col-1,
-//   .footer-col-2 {
-//     width: -webkit-calc(50% - (#{$spacing-unit} / 2));
-//     width: calc(50% - (#{$spacing-unit} / 2));
-//   }
-
-//   .footer-col-3 {
-//     width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-//     width: calc(100% - (#{$spacing-unit} / 2));
-//   }
-// }
-
-// @include media-query($on-palm) {
-//   .footer-col {
-//     float: none;
-//     width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-//     width: calc(100% - (#{$spacing-unit} / 2));
-//   }
-// }
 
 /**
  * Page content
@@ -392,10 +216,6 @@
   }
 }
 
-// .page-content {
-//   @include base-container-attributes($background-color);
-//   min-height: 100vh;
-// }
 
 .page-heading {
   @include relative-font-size(2);
@@ -406,8 +226,6 @@
 */
 .post-list-heading {
   @include shared-title-styles;
-  // padding-right: $spacing-unit;
-  // padding-left: $spacing-unit;
   padding-bottom: 0;
 }
 
@@ -415,15 +233,6 @@
   font-size: $small-font-size;
   color: $grey-color;
 }
-
-// .post-link {
-//   // display: block;
-//   // padding-top: $spacing-unit / 2;
-//   // padding-right: $spacing-unit;
-//   // padding-left: $spacing-unit;
-//   line-height: $base-line-height * 0.75;
-//   // @include relative-font-size(1.5);
-// }
 
 
 
