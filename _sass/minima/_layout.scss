@@ -66,7 +66,13 @@
   background-color: $highlight-color;
 
   @include media-query($on-palm) {
-    display: block;
+    grid-template-areas:
+    "logo top-nav"
+    "sidebar sidebar"
+    "content content"
+    "footer footer";
+
+    grid-template-columns: auto 36px;
   }
 }
 
