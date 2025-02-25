@@ -88,20 +88,12 @@
   @include shared-title-styles;
   min-width: 260px;
 
-  @include media-query($on-palm) {
-    display: inline-block;
-    padding-right: $spacing-unit;
-  }
 }
 
 .container > div.top-nav {
   @include base-nav-styles;
 
   @include media-query($on-palm) {
-    position: absolute;
-    top: 9px;
-    right: 9px;
-    display: block;
     background-color: $background-color;
     border: 1px solid $brand-color;
     border-radius: 5px;
@@ -138,11 +130,7 @@
 .container > div.sidebar {
   grid-area: sidebar;
   @include base-nav-styles;
-  // width: 100%;
-  // flex: 0 0 25%;
   list-style: none;
-  //background-color: papayawhip;
-  //border: 1px solid;
 
   >li {
     margin-bottom: 0;
