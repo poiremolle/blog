@@ -76,9 +76,11 @@
   }
 }
 
-.container > div {
+.container > div,
+.container > nav,
+.container > main {
   background-color: $footer-color;
-  padding: $spacing-unit / 2;
+  padding: $spacing-unit / 2
 }
 
 .container > div.logo {
