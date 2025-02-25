@@ -162,7 +162,7 @@
     @include trigger-behavior;
   }
 }
-.container > div.content {
+.container > main.content {
   grid-area: content;
   //@include base-container-attributes($background-color);
   min-height: 100vh;
