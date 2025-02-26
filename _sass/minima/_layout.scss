@@ -17,15 +17,10 @@
     display: none;
   }
 
-  // .page-link {
-  //   line-height: $base-line-height;
-
-  //   margin-left: $spacing-unit;
-  //   // Gaps between nav items, but not on the last one
-  //   // &:not(:last-child) {
-  //   //   margin-right: 20px;
-  //   // }
-  // }
+  .page-link {
+    line-height: $base-line-height;
+    margin-left: $spacing-unit / 2;
+  }
 
 }
 
