@@ -77,7 +77,7 @@
 
 .container > div.logo {
   grid-area: logo;
-  @include shared-title-styles;
+  align-items: center;
   min-width: 260px;
 
 }
