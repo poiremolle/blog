@@ -86,6 +86,10 @@
   grid-area: top-nav;
   @include base-nav-styles;
 
+  display: flex;
+  justify-content: end;
+  gap: $spacing-unit;
+
   @include media-query($on-palm) {
     background-color: $background-color;
     border: 1px solid $brand-color;
