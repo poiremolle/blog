@@ -1,4 +1,3 @@
-<!--<div class="post-list">-->
 {%- if site.posts.size > 0 -%}
 <nav class="post-list-nav">
     <input type="checkbox" id="post-list-trigger" class="nav-trigger" />
@@ -8,7 +7,6 @@
         </span>
     </label>
 
-    <div class="trigger">
             {% for category in site.categories %}
             <h1 class="post-list-heading">{{ category[0] }}</h1> <!--category name-->
             <ul>
@@ -21,7 +19,5 @@
                 {% endfor %}
             </ul>
             {% endfor %}
-    </div>
 </nav>
 {%- endif -%}
-<!--</div>-->
