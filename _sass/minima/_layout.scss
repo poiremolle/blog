@@ -123,6 +123,14 @@
   }
 }
 
+.container > nav.top-nav a:hover {
+  color: $highlight-color;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: $base-font-weight / 3;
+}
+
+
+
 .container > div.sidebar {
   grid-area: sidebar;
   @include base-nav-styles;
