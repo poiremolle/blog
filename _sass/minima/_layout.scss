@@ -82,7 +82,8 @@
 
 }
 
-.container > div.top-nav {
+.container > nav.top-nav {
+  grid-area: top-nav;
   @include base-nav-styles;
 
   @include media-query($on-palm) {
