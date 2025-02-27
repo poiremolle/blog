@@ -1,17 +1,7 @@
-@mixin base-nav-styles {
-  .nav-trigger {
+@mixin nav-toggle-style {
+  .nav-trigger, .menu-icon{
     display: none;
   }
-
-  .menu-icon {
-    display: none;
-  }
-
-  .page-link {
-    line-height: $base-line-height;
-    margin-left: $spacing-unit / 2;
-  }
-
 }
 
 @mixin trigger-behavior {
@@ -65,7 +55,7 @@
 .container > main {
   background-color: $background-color;
   padding: $spacing-unit / 2;
-  
+
 }
 
 .container > div.logo {
@@ -78,7 +68,7 @@
 
 .container > nav.top-nav {
   grid-area: top-nav;
-  @include base-nav-styles;
+  @include nav-toggle-style;
 
   display: flex;
   justify-content: end;
@@ -127,7 +117,7 @@
 
 .container > nav.sidebar {
   grid-area: sidebar;
-  @include base-nav-styles;
+  @include nav-toggle-style;
   list-style: none;
 
   >li {
@@ -174,6 +164,10 @@
 /**
 * Navigation
 */
+.page-link {
+  line-height: $base-line-height;
+  margin-left: $spacing-unit / 2;
+}
 
 #current {
   color: $highlight-color;
