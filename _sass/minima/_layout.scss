@@ -33,9 +33,9 @@
     "logo top-nav"
     "sidebar content"
     "footer footer";
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: max-content auto;
   grid-template-rows: min-content auto min-content;
-  gap: 5px;
+  gap: 1px;
   background-color: $compl-color;
 
   @include media-query($on-palm) {
