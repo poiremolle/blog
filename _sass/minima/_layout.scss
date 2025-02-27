@@ -56,11 +56,14 @@
 
 }
 
+.container > div.logo,
+.container > nav.top-nav {
+  @include banner-text($size-ratio: 1.75);
+}
+
 .container > div.logo {
-  @include relative-font-size(2);
   grid-area: logo;
   align-items: center;
-  min-width: 260px;
 
   @include media-query($on-palm){
     background-color: $compl-color;
