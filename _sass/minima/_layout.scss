@@ -19,10 +19,11 @@
 
 }
 
-@mixin banner-text($color, $size-ratio: 1) {
+@mixin banner-text($color: $brand-color, $size-ratio: 1) {
   @include relative-font-size($size-ratio);
   text-transform: uppercase;
   color: $color;
+  line-height: 80%;
 }
 
 
