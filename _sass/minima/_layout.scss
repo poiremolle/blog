@@ -8,7 +8,7 @@
 }
 
 @mixin base-nav-styles {
-  @include shared-title-styles;
+  //@include shared-title-styles;
   .nav-trigger {
     display: none;
   }
@@ -66,13 +66,14 @@
     "sidebar sidebar"
     "content content"
     "footer footer";
+    grid-template-rows: min-content min-content auto min-content;
   }
 }
 
 .container > div,
 .container > nav,
 .container > main {
-  background-color: $footer-color;
+  background-color: $background-color;
   padding: $spacing-unit / 2
 }
 
@@ -81,7 +82,7 @@
   grid-area: logo;
   align-items: center;
   min-width: 260px;
-
+  
 }
 
 .container > nav.top-nav {
@@ -133,8 +134,7 @@
 }
 
 
-
-.container > div.sidebar {
+.container > nav.sidebar {
   grid-area: sidebar;
   @include base-nav-styles;
   list-style: none;
@@ -171,7 +171,7 @@
 }
 .container > main.content {
   grid-area: content;
-  min-height: 100vh;
+  //min-height: 100vh;
   background-color: $background-color;
 }
 
@@ -196,15 +196,16 @@
  * Page content
  */
 .page-header {
-  @include media-query($on-palm){
-    margin-bottom: 0;
-  }
+  background-color: yellow;
+  // @include media-query($on-palm){
+  //   margin-bottom: 0;
+  // }
  
 }
 
 .page-title {
   display: none;
-  @include shared-title-styles;
+  //@include shared-title-styles;
 
   @include media-query($on-palm) {
     display: block;
@@ -220,7 +221,7 @@
 * Post list
 */
 .post-list-heading {
-  @include shared-title-styles;
+  //@include shared-title-styles;
   padding-bottom: 0;
 }
 
@@ -235,7 +236,8 @@
  * Posts
  */
 .post-title {
-  @include shared-title-styles;
+  text-transform: uppercase;
+  //@include shared-title-styles;
 }
 
 .post-content {
