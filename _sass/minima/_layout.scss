@@ -1,14 +1,4 @@
-@mixin shared-title-styles {
-  @include relative-font-size(1.625);
-  text-transform: uppercase;
-  line-height: $base-line-height * $base-font-size * 2.25 + 2;
-  margin-bottom: 0;
-  color: $brand-color;
-
-}
-
 @mixin base-nav-styles {
-  //@include shared-title-styles;
   .nav-trigger {
     display: none;
   }
@@ -171,7 +161,6 @@
 }
 .container > main.content {
   grid-area: content;
-  //min-height: 100vh;
   background-color: $background-color;
 }
 
@@ -195,17 +184,9 @@
 /**
  * Page content
  */
-.page-header {
-  background-color: yellow;
-  // @include media-query($on-palm){
-  //   margin-bottom: 0;
-  // }
- 
-}
 
 .page-title {
   display: none;
-  //@include shared-title-styles;
 
   @include media-query($on-palm) {
     display: block;
@@ -217,14 +198,10 @@
   @include relative-font-size(2);
 }
 
+
 /**
 * Post list
 */
-.post-list-heading {
-  background-color: yellow;
-  //@include shared-title-styles;
-  //padding-bottom: 0;
-}
 
 .post-meta {
   font-size: $small-font-size;
@@ -232,13 +209,11 @@
 }
 
 
-
 /**
  * Posts
  */
 .post-title {
   text-transform: uppercase;
-  //@include shared-title-styles;
 }
 
 .post-content {
