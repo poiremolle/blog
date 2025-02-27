@@ -13,18 +13,16 @@
 
   input:checked~.trigger {
     display: block;
-    padding-bottom: 5px;
+    padding: $spacing-unit;
     background-color: $background-color;
   }
 
-  // .page-link {
-  //   display: block;
-  //   padding: 5px 10px;
+}
 
-    // &:not(:last-child) {
-    //   margin-right: 0;
-    // }
-  // }
+@mixin banner-text($color, $size-ratio: 1) {
+  @include relative-font-size($size-ratio);
+  text-transform: uppercase;
+  color: $color;
 }
 
 
@@ -54,7 +52,7 @@
 .container > nav,
 .container > main {
   background-color: $background-color;
-  padding: $spacing-unit / 2;
+  padding: $spacing-unit;
 
 }
 
@@ -125,15 +123,16 @@
   }
 
   @include media-query($on-palm) {
+    @include banner-text($brand-color, 1.5);
+    padding: 0;
     background-color: $highlight-color;
     text-align: left;
-    border-bottom: 3px solid $brand-color;
 
     label[for="post-list-trigger"] {
+      padding: $spacing-unit;
       display: block;
       width: 100%;
       cursor: pointer;
-      background-color: $highlight-color;
     }
 
     .menu-icon {
@@ -152,7 +151,6 @@
 }
 .container > main.content {
   grid-area: content;
-  background-color: $background-color;
 }
 
 .container > div.footer {
@@ -166,11 +164,11 @@
 */
 .page-link {
   line-height: $base-line-height;
-  margin-left: $spacing-unit / 2;
+  margin-left: $spacing-unit;
 
   @include media-query($on-palm){
     display: block;
-    padding: ($spacing-unit / 2) ($spacing-unit / 2) 0 ;
+    padding: ($spacing-unit) ($spacing-unit) 0 ;
     text-align: right;
   }
 }
