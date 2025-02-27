@@ -144,7 +144,7 @@
   }
 
   @include media-query($on-palm) {
-    background-color: $background-color;
+    background-color: $highlight-color;
     text-align: left;
     border-bottom: 3px solid $brand-color;
 
@@ -221,8 +221,9 @@
 * Post list
 */
 .post-list-heading {
+  background-color: yellow;
   //@include shared-title-styles;
-  padding-bottom: 0;
+  //padding-bottom: 0;
 }
 
 .post-meta {
