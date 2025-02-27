@@ -50,22 +50,6 @@ $on-laptop:        800px !default;
   font-size: $base-font-size * $ratio;
 }
 
-@mixin base-container-attributes($bgcolor) {
-  width: 100%;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-
-  box-sizing: border-box;
-
-  @include media-query($on-palm) {
-    display: block;
-  }
-
-  background-color: $bgcolor;
-}
-
 
 // Import partials.
 @import
