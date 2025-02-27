@@ -162,6 +162,12 @@
     @include trigger-behavior("trigger");
   }
 }
+
+.container > nav.sidebar a:hover::after {
+  content: " \263A";
+  display: inline;
+}
+
 .container > main.content {
   grid-area: content;
 }
