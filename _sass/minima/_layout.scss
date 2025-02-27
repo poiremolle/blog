@@ -61,6 +61,10 @@
   grid-area: logo;
   align-items: center;
   min-width: 260px;
+
+  @include media-query($on-palm){
+    background-color: $compl-color;
+  }
   
 }
 
@@ -78,6 +82,7 @@
     top: 0px;
     right: 0px;
     display: block;
+    background-color: $compl-color;
 
     label[for="nav-trigger"] {
       width: 100%;
