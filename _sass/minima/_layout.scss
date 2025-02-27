@@ -17,14 +17,14 @@
     background-color: $background-color;
   }
 
-  .page-link {
-    display: block;
-    padding: 5px 10px;
+  // .page-link {
+  //   display: block;
+  //   padding: 5px 10px;
 
     // &:not(:last-child) {
     //   margin-right: 0;
     // }
-  }
+  // }
 }
 
 
@@ -167,6 +167,12 @@
 .page-link {
   line-height: $base-line-height;
   margin-left: $spacing-unit / 2;
+
+  @include media-query($on-palm){
+    display: block;
+    padding: ($spacing-unit / 2) ($spacing-unit / 2) 0 ;
+    text-align: right;
+  }
 }
 
 #current {
