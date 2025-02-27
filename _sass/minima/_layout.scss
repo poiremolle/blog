@@ -14,15 +14,15 @@
   input:checked~.#{$class-name} {
     display: block;
     padding: $spacing-unit;
-    background-color: $background-color;
+    background-color: var(--background-color);
   }
 
 }
 
-@mixin banner-text($color: $brand-color, $size-ratio: 1) {
+@mixin banner-text($color: var(--main-color), $size-ratio: 1) {
   @include relative-font-size($size-ratio);
   text-transform: uppercase;
-  color: $color;
+  color: var(--main-color);
   line-height: 80%;
 }
 
@@ -37,7 +37,7 @@
   grid-template-columns: max-content auto;
   grid-template-rows: min-content auto min-content;
   gap: 1px;
-  background-color: $compl-color;
+  background-color: var(--secondary-color);
 
   @include media-query($on-palm) {
     grid-template-areas:
@@ -52,7 +52,7 @@
 .container > div,
 .container > nav,
 .container > main {
-  background-color: $background-color;
+  background-color: var(--background-color);
   padding: $spacing-unit;
 
 }
@@ -67,7 +67,7 @@
   align-items: center;
 
   @include media-query($on-palm){
-    background-color: $compl-color;
+    background-color: var(--secondary-color);
   }
   
 }
@@ -85,7 +85,7 @@
     top: 0px;
     right: 0px;
     display: block;
-    background-color: $compl-color;
+    background-color: var(--secondary-color);
 
     label[for="nav-trigger"] {
       width: 100%;
@@ -94,7 +94,7 @@
       justify-content: end;
       z-index: 2;
       cursor: pointer;
-      background-color: $brand-color;
+      background-color: var(--main-color);
     }
 
     .menu-icon {
@@ -106,7 +106,7 @@
       text-align: center;
 
       >svg {
-        fill: $background-color
+        fill: var(--background-color)
       }
     }
 
@@ -120,7 +120,7 @@
 }
 
 .container > nav.top-nav a:hover {
-  color: $highlight-color;
+  color: var(--highlight-color);
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: $base-font-weight / 3;
 }
@@ -136,9 +136,9 @@
   }
 
   @include media-query($on-palm) {
-    @include banner-text($brand-color, 1.5);
+    @include banner-text(var(--main-color), 1.5);
     padding: 0;
-    background-color: $highlight-color;
+    background-color: var(--highlight-color);
     text-align: left;
 
     label[for="post-list-trigger"] {
@@ -154,9 +154,9 @@
       line-height: 1;
       text-align: left;
 
-      >svg {
-        fill: $grey-color-dark;
-      }
+      // >svg {
+      //   fill: $grey-color-dark;
+      // }
     }
 
     @include trigger-behavior("trigger");
@@ -182,18 +182,14 @@
 * Navigation
 */
 .page-link {
-  line-height: $base-line-height;
-  margin-left: $spacing-unit;
-
   @include media-query($on-palm){
     display: block;
-    padding: ($spacing-unit) ($spacing-unit) 0 ;
     text-align: right;
   }
 }
 
 #current {
-  color: $highlight-color;
+  color: var(--highlight-color);
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: $base-font-weight / 2;
 } 
@@ -223,7 +219,7 @@
 
 .post-meta {
   font-size: $small-font-size;
-  color: $grey-color;
+  color: var(--text-color);
 }
 
 
