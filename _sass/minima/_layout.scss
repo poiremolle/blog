@@ -4,14 +4,14 @@
   }
 }
 
-@mixin trigger-behavior {
+@mixin trigger-behavior($class-name) {
   
-  input~.trigger {
+  input~.#{$class-name} {
     clear: both;
     display: none;
   }
 
-  input:checked~.trigger {
+  input:checked~.#{$class-name} {
     display: block;
     padding: $spacing-unit;
     background-color: $background-color;
@@ -109,7 +109,7 @@
       }
     }
 
-    @include trigger-behavior;
+    @include trigger-behavior("top-nav-links");
   }
 }
 
@@ -158,7 +158,7 @@
       }
     }
 
-    @include trigger-behavior;
+    @include trigger-behavior("trigger");
   }
 }
 .container > main.content {
