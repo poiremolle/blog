@@ -15,8 +15,8 @@ dl, dd, ol, ul, figure {
  */
 body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
-  color: $text-color;
-  background-color: $secondary-color;
+  color: var(--text-color);
+  background-color: var(--background-color);
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
      -moz-font-feature-settings: "kern" 1;
@@ -98,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   text-transform: uppercase;
-  color: $brand-color;
+  color: var(--main-color);
 }
 
 
@@ -106,20 +106,14 @@ h1 {
  * Links
  */
 a {
-  color: $brand-color;
+  color: var(--secondary-color);;
   text-decoration: none;
   font-weight: $base-font-weight * 2;
   text-transform: uppercase;
 
-  &:visited {
-    color: darken($brand-color, 15%);
+  &:hover {
+    color: var(--highlight-color);
   }
-
-  // &:hover {
-  //   color: yellow;
-  //   font-family: Georgia, 'Times New Roman', Times, serif;
-  //   font-weight: $base-font-weight / 3;
-  // }
 
   &:active {
     font-family: Arial, Helvetica, sans-serif;
@@ -134,17 +128,14 @@ a {
   }
 }
 
-.span.active {
-  font-family: 'Courier New', Courier, monospace;
-  background-color: aliceblue;
-}
 
 /**
  * Blockquotes
  */
 blockquote {
-  color: $grey-color;
-  border-left: 4px solid $grey-color-light;
+  color: var(--main-color);
+  filter: brightness(1.5);
+  border-left: 4px solid var(--main-color);
   padding-left: $spacing-unit;
   @include relative-font-size(1.125);
   letter-spacing: -1px;
@@ -163,9 +154,9 @@ blockquote {
 pre,
 code {
   @include relative-font-size(0.9375);
-  border: 1px solid $grey-color-light;
+  border: 1px solid var(--highlight-color);
   border-radius: 3px;
-  background-color: #eef;
+  background-color: var(--background-color);
 }
 
 code {
@@ -204,7 +195,7 @@ pre {
     width: 16px;
     height: 16px;
     display: inline-block;
-    fill: #{$grey-color};
+    fill: var(--highlight-color);
     padding-right: 5px;
     vertical-align: text-top;
 }
@@ -216,8 +207,8 @@ pre {
 }
 
 button {
-  background-color: $background-color;
-  color: $brand-color;
+  background-color: var(--background-color);
+  color: var(--main-color);
 }
 
 
