@@ -2,13 +2,13 @@
     <input type="checkbox" id="post-list-trigger" class="nav-trigger" />
     <label for="post-list-trigger">
         <span class="menu-icon">
-            <h2 class="post-list-heading">projects &#11015;</h2>
+            <h1>projects &#11015;</h1>
         </span>
     </label>
 
     <div class="trigger">
             {% for category in site.categories %}
-            <h1 class="post-list-heading">{{ category[0] }}</h1> <!--category name-->
+            <h1>{{ category[0] }}</h1> <!--category name-->
             <ul>
                 {% for post in category[1] %} <!--list of posts in this category-->
                 <li>
