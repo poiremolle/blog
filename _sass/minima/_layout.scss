@@ -113,6 +113,11 @@
   }
 }
 
+.top-nav-links{
+  display: flex;
+  gap: $spacing-unit;
+}
+
 .container > nav.top-nav a:hover {
   color: $highlight-color;
   font-family: Georgia, 'Times New Roman', Times, serif;
