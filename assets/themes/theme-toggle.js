@@ -6,21 +6,39 @@ const buttons = {
                   'princess': princess_button = document.createElement("button")
                 }
 
-function setTheme(themeName) {
-  console.log("I ran setTheme for: " + themeName);
-      document.getElementById('theme-link').setAttribute('href', 'assets/themes/theme-' +
-  themeName + '.css');
-}
-
 for(let themeName in buttons) {
   if(buttons.hasOwnProperty(themeName)){
     let button = buttons[themeName];
     button.textContent = themeName + " theme";
     button.id = "theme-" + themeName;
     button.onclick = () => setTheme(themeName);
-    document.getElementById('top-nav').appendChild(button);
+    document.getElementById('theme-buttons').appendChild(button);
   }
 }
 
-console.log("I ran theme-toggle")
+function applySavedTheme() {
+  const savedTheme = sessionStorage.getItem('theme');
+
+  if (savedTheme) {
+      setTheme(savedTheme)
+  } else {
+      document.getElementById('theme-link').setAttribute('href', '/blog/assets/themes/theme-light.css');
+  }
+}
+
+function setTheme(themeName) {
+  sessionStorage.clear();
+  sessionStorage.setItem('theme', themeName);
+
+  document.getElementById('theme-link').setAttribute('href', '/blog/assets/themes/theme-' +
+  themeName + '.css');
+}
+
+
+window.onload = applySavedTheme();
+
+
+
+
+
 
