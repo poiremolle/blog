@@ -95,12 +95,12 @@ function dragStart(event) {
         event.preventDefault();
   }
  
-  let initialCoords = [2];
+  let initialCoords = {x:0, y:0};
 
   // mouse event, calculates how far in the img the cursor is so the img doesn't "jump" to the cursor 
   if (event.type === 'mousedown') {
-    initialCoords[0] = event.clientX - this.offsetLeft;
-    initialCoords[1] = event.clientY - this.offsetTop;
+    initialCoords.x = event.clientX - this.offsetLeft;
+    initialCoords.y = event.clientY - this.offsetTop;
   }
   // same but for touch event
   else if (event.type === 'touchstart') {
@@ -108,18 +108,21 @@ function dragStart(event) {
     initialCoords[1] = event.touches[0].clientY - this.offsetTop;
   }
   console.log( "current: " + this + ", initialCoords: " + initialCoords)
-  return { active: true, currentElement: this, initialCoords: initialCoords };
+  return { active: true, currentElement: this, initialCoords };
 };
 
-function move(active, currentElement, initialCoords) {
+function move(active, currentElement, x, y) {
   if (active && currentElement) {
     this.preventDefault();
     
     // difference between mouse (x,y) and the cursor offset relative to the element's top corner
-    let currentX = this.clientX - initialCoords.x; 
-    let currentY = this.clientY - initialCoords.y;
-    currentElement.style.left = currentX + 'px';
-    currentElement.style.top = currentY + 'px';
+    // let currentX = this.clientX - initialCoords.x; 
+    // let currentY = this.clientY - initialCoords.y;
+    const newX = this.clientX - x;
+    const newY = this.clientY - y;
+    console.log("mouse x and y inside: " + this.clientX + ", " + this.clientY);
+    console.log("coords inside: " + x + " " + y);
+    return [newX, newY];
   }
 }
 
@@ -179,7 +182,7 @@ function setDraggableEventListeners() {
 for (let i = 0; i < draggables.length; i++) {
   draggables[i].addEventListener('mousedown', function(event) {
     dragged = dragStart.call(draggables[i], event);
-    console.log(dragged.active, dragged.currentElement, dragged.initialCoords); 
+    console.log("start: " + dragged.active, dragged.currentElement, dragged.initialCoords); 
   });
 
   draggables[i].addEventListener('dblclick', function(event) {
@@ -195,7 +198,18 @@ document.addEventListener('mouseup', function(event) {
 
 // triggers if mouse is down and on an element (ie. currentElement != null)
 document.addEventListener('mousemove', function(event) {
-  move.call(event, dragged.active, dragged.currentElement, dragged.initialCoords);
+  if(dragged.currentElement){
+    let newPos = [];
+    console.log("current element: " + dragged.currentElement);
+    console.log(dragged.initialCoords.x, dragged.initialCoords.y);
+    newPos = move.call(event, dragged.active, dragged.currentElement, dragged.initialCoords.x, dragged.initialCoords.y);
+    console.log("newPos: " + newPos[0] + newPos[1]);
+    dragged.currentElement.style.left = newPos[0] + 'px';
+    dragged.currentElement.style.top = newPos[1] + 'px';
+    console.log("x:" + dragged.currentElement.style.left);
+    console.log("y:" + dragged.currentElement.style.top);
+  }
+
 });
 
 }
