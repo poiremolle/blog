@@ -128,6 +128,7 @@ function move(active, currentElement, x, y) {
 
 function dragStop(currentElement) {
   if(currentElement != null) {
+    console.log("current element not nyll: " + currentElement);
     if(imageIsOnCanvas(currentElement, canvas)){
      canvasImages.add(currentElement);
 
@@ -192,7 +193,7 @@ for (let i = 0; i < draggables.length; i++) {
 
 // triggers no matter where mouse is clicked
 document.addEventListener('mouseup', function(event) {
-  dragged = dragStop.call(event);
+  dragged = dragStop.call(event, dragged.currentElement);
   console.log("drag stopped: " + dragged.active, dragged.currentElement, dragged.initialCoords);
 });
 
