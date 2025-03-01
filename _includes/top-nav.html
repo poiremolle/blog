@@ -1,3 +1,4 @@
+<div class="horizontal-list">
 {%- if page_paths -%}
   <input type="checkbox" id="nav-trigger" class="nav-trigger" />
   <label for="nav-trigger">
@@ -7,8 +8,6 @@
       </svg>
     </span>
   </label> 
-
-  <div class="top-nav-links" id="top-nav">
     {%- for path in page_paths -%}
       {%- assign my_page = site.pages | where: "path", path | first -%}
       {%- if my_page.title -%}
@@ -16,7 +15,9 @@
     
       {%- endif -%}
     {%- endfor -%}
-  </div>
+</div>
+
+<div class="horizontal-list" id="theme-buttons"></div>
 {%- endif -%}
 
 <script src="{{ "/assets/themes/theme-toggle.js" | relative_url }}"></script>
