@@ -149,7 +149,7 @@
     @include banner-text(var(--main-color), 1.5);
     padding: 0;
     background-color: var(--highlight-color);
-    text-align: left;
+    border-bottom: 2px solid var(--link-color);
 
     label[for="post-list-trigger"] {
       padding: $spacing-unit;
