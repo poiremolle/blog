@@ -44,12 +44,6 @@
   @include media-query($on-palm) {
     display: flex;
     flex-direction: column;
-    // grid-template-areas:
-    // "logo top-nav"
-    // "sidebar sidebar"
-    // "content content"
-    // "footer footer";
-    // grid-template-rows: min-content min-content auto min-content;
   }
 }
 
