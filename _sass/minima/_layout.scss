@@ -80,9 +80,10 @@
 
   @include media-query($on-palm) {
     position: absolute;
-    top: 0px;
-    right: 0px;
-    display: block;
+    top: 9px;
+    right: 8px;
+    padding: 0;
+    //display: block;
     background-color: var(--secondary-color);
 
     label[for="nav-trigger"] {
