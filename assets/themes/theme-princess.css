@@ -1,8 +1,13 @@
-:root{
-    --main-color: purple;
-    --secondary-color: #a9cccd;
-    --highlight-color: #00FF00;
-    --text-color: red;
+:root {
+    --main-color: #ff6fcf; 
+    --secondary-color: #9e4d97; 
+    --tertiary-color: #f0f0cf;
+    --highlight-color: #fffc31; 
+    --background-color: #fbe4f3;
+    
+    --text-color: #2c1939; 
+    --link-color: #e5d4ff;
+    --title-color: #e5d4ff;
+
+    
 }
-
-

@@ -1,8 +1,12 @@
-:root{
-    --main-color: #a9cccd;
-    --secondary-color: #000000;
-    --highlight-color: #00FF00;
-    --text-color: blue;
+:root {
+    --main-color: #32e97b; 
+    --secondary-color: #0d0221; 
+    --tertiary-color:#0d0221; 
+    --highlight-color: #00ff00; 
+
+    --background-color: #0d0221;
+
+    --link-color: #e5d4ff;
+    --title-color: #e5d4ff;
+    --text-color: #e5d4ff;
 }
-
-

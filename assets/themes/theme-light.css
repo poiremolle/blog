@@ -1,7 +1,13 @@
 :root{
-    --main-color: #ff3399;
-    --secondary-color: #a9cccd;
-    --highlight-color: #00FF00;
+    --main-color: rgb(255, 60, 130);
+    --secondary-color: white;
+    --tertiary-color: white;
+    --highlight-color: rgb(255, 228, 23);
+
+    --background-color: #FFFFFF;
+
+    --link-color: blue;
+    --title-color: blue;
     --text-color: blue;
 }
 
