@@ -1,4 +1,4 @@
- // Object containing the categories and their counts
+ // Object containing the categories and how many there are in each
  const props = {
     head: 3,
     mouth: 3,
@@ -13,6 +13,9 @@ const canvas = document.getElementById('canvas');
 const container = document.getElementById('image-container');
 export const canvasImages = new Set();
 export const factor = 3;
+
+
+// ELEMENT CREATION FUNCTIONS
 
 function createWrappedImageElement(src, alt) {
  const wrapper = document.createElement('div');
@@ -30,6 +33,8 @@ function createWrappedImageElement(src, alt) {
 
 }
 
+
+// ELEMENT MANIPULATION FUNCTIONS
 
 function scaleWrappedImages(scaleFactor) {
   document.querySelectorAll('.image-wrapper img').forEach(img => {
@@ -53,7 +58,6 @@ function scaleImage(img, scaleFactor) {
 
 }
 
-
 function displayImagesInRows() {
      // Loop through each category and create a row
   for (const [category, count] of Object.entries(props)) {
@@ -70,6 +74,8 @@ function displayImagesInRows() {
   }
 }
 
+
+// UTILITIES
 function imageIsOnCanvas(image, canvas){
   const rect1 = image.getBoundingClientRect();
   const rect2 = canvas.getBoundingClientRect();
@@ -80,6 +86,30 @@ function imageIsOnCanvas(image, canvas){
     rect1.top > rect2.bottom);
 }
 
+
+// USER INTERACTION FUNCTIONS
+
+function dragStart(event, active, currentElement) {
+  // prevents browser for treating img as draggable file
+  if (event.target.tagName === 'IMG') {
+        event.preventDefault();
+  }
+  active = true;
+  currentElement = this; 
+  console.log(this);
+  // mouse event, calculates how far in the img the cursor is so the img doesn't "jump" to the cursor 
+  if (event.type === 'mousedown') {
+    initialX = event.clientX - currentElement.offsetLeft;
+    initialY = event.clientY - currentElement.offsetTop;
+  }
+  // same but for touch event
+  else if (event.type === 'touchstart') {
+    initialX = event.touches[0].clientX - currentElement.offsetLeft;
+    initialY = event.touches[0].clientY - currentElement.offsetTop;
+  }
+
+};
+
 function setDraggableEventListeners() {
   const draggables = document.getElementsByClassName('draggable');
   let active = false;
@@ -88,16 +118,7 @@ function setDraggableEventListeners() {
 
 for (let i = 0; i < draggables.length; i++) {
   draggables[i].addEventListener('mousedown', function(event) {
-    // prevents browser for treating img as draggable file
-    if (event.target.tagName === 'IMG') {
-          event.preventDefault();
-    }
-    active = true;
-    currentElement = this; 
-
-    // calculates how far in the img the cursor is so the img doesn't "jump" to the cursor 
-    initialX = event.clientX - currentElement.offsetLeft;  
-    initialY = event.clientY - currentElement.offsetTop;
+    dragStart.call(draggables[i], event, active, currentElement);
   });
 
   draggables[i].addEventListener('dblclick', function(event) {
