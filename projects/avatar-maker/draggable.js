@@ -89,94 +89,113 @@ function imageIsOnCanvas(image, canvas){
 
 // USER INTERACTION FUNCTIONS
 
-function dragStart(event, active, currentElement) {
+function dragStart(event) {
   // prevents browser for treating img as draggable file
   if (event.target.tagName === 'IMG') {
         event.preventDefault();
   }
-  active = true;
-  currentElement = this; 
-  console.log(this);
+ 
+  let initialCoords = [2];
+
   // mouse event, calculates how far in the img the cursor is so the img doesn't "jump" to the cursor 
   if (event.type === 'mousedown') {
-    initialX = event.clientX - currentElement.offsetLeft;
-    initialY = event.clientY - currentElement.offsetTop;
+    initialCoords[0] = event.clientX - this.offsetLeft;
+    initialCoords[1] = event.clientY - this.offsetTop;
   }
   // same but for touch event
   else if (event.type === 'touchstart') {
-    initialX = event.touches[0].clientX - currentElement.offsetLeft;
-    initialY = event.touches[0].clientY - currentElement.offsetTop;
+    initialCoords[0] = event.touches[0].clientX - this.offsetLeft;
+    initialCoords[1] = event.touches[0].clientY - this.offsetTop;
+  }
+  console.log( "current: " + this + ", initialCoords: " + initialCoords)
+  return { active: true, currentElement: this, initialCoords: initialCoords };
+};
+
+function move(active, currentElement, initialCoords) {
+  if (active && currentElement) {
+    this.preventDefault();
+    
+    // difference between mouse (x,y) and the cursor offset relative to the element's top corner
+    let currentX = this.clientX - initialCoords.x; 
+    let currentY = this.clientY - initialCoords.y;
+    currentElement.style.left = currentX + 'px';
+    currentElement.style.top = currentY + 'px';
+  }
+}
+
+function dragStop(currentElement) {
+  if(currentElement != null) {
+    if(imageIsOnCanvas(currentElement, canvas)){
+     canvasImages.add(currentElement);
+
+      } else {
+     canvasImages.delete(currentElement);
+
+   }
+    
+ }
+ let resetCoords = {x:0, y:0};
+ return { active: false, currentElement: null, initialCoords: resetCoords } ;
+
+}
+
+function moveToCanvas(event) {
+  console.log("dbl clicked");
+  if (event.target.tagName === 'IMG') {
+    event.preventDefault();
+
+    const midCanvasX = canvas.getBoundingClientRect().left + 
+                       canvas.offsetWidth / 2;
+    const midCanvasY = canvas.getBoundingClientRect().top +
+                       canvas.offsetHeight / 2;
+
+    const midImgX = this.getBoundingClientRect().left +
+                 this.offsetWidth / 2;
+    const midImgY = this.getBoundingClientRect().top + 
+                 this.offsetHeight / 2;
+
+    const newX = midCanvasX - midImgX;
+    const newY = midCanvasY - midImgY;
+
+    this.style.left =  newX + 'px';
+    this.style.top = newY + 'px';
+
+    if(imageIsOnCanvas(this, canvas)) {
+      canvasImages.add(this);
+    }
   }
 
-};
+}
 
 function setDraggableEventListeners() {
   const draggables = document.getElementsByClassName('draggable');
-  let active = false;
-  let currentX, currentY, initialX, initialY;
-  let currentElement = null;
+
+  let dragged = {
+    active: false,
+    currentElement: null,
+    initialCoords: {x: 0, y: 0}
+  }
 
 for (let i = 0; i < draggables.length; i++) {
   draggables[i].addEventListener('mousedown', function(event) {
-    dragStart.call(draggables[i], event, active, currentElement);
+    dragged = dragStart.call(draggables[i], event);
+    console.log(dragged.active, dragged.currentElement, dragged.initialCoords); 
   });
 
   draggables[i].addEventListener('dblclick', function(event) {
-    console.log("dbl clicked");
-    if (event.target.tagName === 'IMG') {
-      event.preventDefault();
-
-      const midCanvasX = canvas.getBoundingClientRect().left + 
-                         canvas.offsetWidth / 2;
-      const midCanvasY = canvas.getBoundingClientRect().top +
-                         canvas.offsetHeight / 2;
-
-      const midImgX = this.getBoundingClientRect().left +
-                   this.offsetWidth / 2;
-      const midImgY = this.getBoundingClientRect().top + 
-                   this.offsetHeight / 2;
-
-      const newX = midCanvasX - midImgX;
-      const newY = midCanvasY - midImgY;
-
-      this.style.left =  newX + 'px';
-      this.style.top = newY + 'px';
-  
-      if(imageIsOnCanvas(this, canvas)) {
-        canvasImages.add(this);
-      }
-    }
-   
+    moveToCanvas.call(draggables[i], event);
   });
 }
 
 // triggers no matter where mouse is clicked
-document.addEventListener('mouseup', function() {
-  if(currentElement != null) {
-     if(imageIsOnCanvas(currentElement, canvas)){
-      canvasImages.add(currentElement);
-
-       } else {
-      canvasImages.delete(currentElement);
-
-    }
-     
-  }
-  active = false;
-  currentElement = null;
+document.addEventListener('mouseup', function(event) {
+  dragged = dragStop.call(event);
+  console.log("drag stopped: " + dragged.active, dragged.currentElement, dragged.initialCoords);
 });
 
 // triggers if mouse is down and on an element (ie. currentElement != null)
 document.addEventListener('mousemove', function(event) {
-  if (active && currentElement) {
-    event.preventDefault();
-    
-    // difference between mouse (x,y) and the cursor offset relative to the element's top corner
-    currentX = event.clientX - initialX; 
-    currentY = event.clientY - initialY;
-    currentElement.style.left = currentX + 'px';
-    currentElement.style.top = currentY + 'px';
-  }
+  move.call(event, dragged.active, dragged.currentElement, dragged.initialCoords);
 });
 
 }
